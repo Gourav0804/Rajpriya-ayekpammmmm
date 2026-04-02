@@ -1,0 +1,60 @@
+// Default labels
+let yesText = "Yes 💖";
+let noText = "No 🙈";
+
+// Question 3 → both YES
+if(q.type==="doubleYes"){
+  yes.innerText="Yes 💖";
+  no.innerText="Yes 😄";
+
+  yes.onclick=no.onclick=()=>{
+    index++;
+    loadQ();
+  };
+}
+
+// Question 4 → reverse logic
+else if(q.type==="reverse"){
+  yes.innerText="Yes 😅";
+  no.innerText="No 💖";
+
+  no.onclick=()=>{
+    index++;
+    loadQ();
+  };
+
+  yes.onmouseover=()=>move(yes);
+}
+
+// Escape NO questions
+else if(q.type==="noEscape"){
+  yes.innerText="Yes 💕";
+  no.innerText="No 😜";
+
+  yes.onclick=()=>{
+    index++;
+    loadQ();
+  };
+
+  no.onmouseover=()=>move(no);
+}
+
+// Final trigger
+else if(q.type==="finalYes"){
+  yes.innerText="Yes ❤️";
+  no.innerText="No 😏";
+
+  yes.onclick=showFinal;
+  no.onmouseover=()=>move(no);
+}
+
+// Normal
+else{
+  yes.innerText="Yes 😊";
+  no.innerText="No 🙂";
+
+  yes.onclick=no.onclick=()=>{
+    index++;
+    loadQ();
+  };
+}
